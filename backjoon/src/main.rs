@@ -1,5 +1,3 @@
-use std::io;
-
 // fn main() {
 //     let mut numbers_arr = String::new();
 //     dbg!(&numbers_arr);
@@ -169,14 +167,224 @@ use std::io;
 //     println!("{}", result);
 // }
 
-fn main() {
-    println!("{0}    {1}{0}", "\\", "/");
-    println!(" {0}  {1} {2}{0}", ")", "(", "'");
-    println!("{0}  {1}  {2}", "(", "/", ")");
-    println!(" {0}{1}{2}{2}{3}{4}", "\\", "(", "_", ")", "|",);
-}
+// fn main() {
+//     println!("{0}    {1}{0}", "\\", "/");
+//     println!(" {0}  {1} {2}{0}", ")", "(", "'");
+//     println!("{0}  {1}  {2}", "(", "/", ")");
+//     println!(" {0}{1}{2}{2}{3}{4}", "\\", "(", "_", ")", "|",);
+// }
 
 // \    /\
 //  )  ( ')
 // (  /  )
 //  \(__)|
+
+
+// fn main() {
+//     let mut input = String::new();
+
+//     io::stdin().read_line(&mut input).expect("input 값을 확인해주세요");
+
+//     let arr:Vec<i32> = input.split_whitespace()
+//         .map(|s| s.trim().parse().expect("파싱 에러입니다.")).collect();
+
+//     let (a,  b) = (arr[0], arr[1]);
+
+//     if a > b {
+//         println!(">");
+//     } else if a == b {
+//         println!("==");
+//     } else {
+//         println!("<");
+//     }
+// }
+
+// fn main() {
+//     let mut input = String::new();
+//     io::stdin().read_line(&mut input).expect("input 값을 확인해주세요");
+
+//     let grade: i32 = input.trim().parse().expect("parse error!!.");
+//     // dbg!(grade);
+//     if grade >=90 && grade <= 100 {
+//         println!("A")
+//     } else if grade >=80 && grade <= 89 {
+//         println!("B")
+//     } else if grade >= 70 && grade <=79 {
+//         println!("C")
+//     } else if grade >= 60 && grade <= 69 {
+//         println!("D")
+//     } else {
+//         println!("F")
+//     }
+// }
+
+// fn main() {
+//     let mut input = String::new();
+//     io::stdin().read_line(&mut input).expect("입력을 확인해주세요");
+
+//     let grade: Result<i32, std::num::ParseIntError> = input.trim().parse();
+    
+//     match grade {
+//         Ok(grade_value) => {
+//             if grade_value >= 90 && grade_value <= 100 {
+//                 println!("A");
+//             } else if grade_value >= 80 && grade_value <= 89 {
+//                 println!("B");
+//             } else if grade_value >= 70 && grade_value <= 79 {
+//                 println!("C");
+//             } else if grade_value >= 60 && grade_value <= 69 {
+//                 println!("D");
+//             } else {
+//                 println!("F");
+//             }
+//         }
+//         Err(err) => {
+//             eprintln!("파싱 오류: {:?}", err);
+//         }
+//     }
+// }
+
+// fn main () {
+//     //윤년은 4의 배수 이면서 100의 배수가 아닐때 
+//     // 400의 배수일 때
+//     let mut input = String::new();
+//     io::stdin().read_line(&mut input).expect("input 값을 확인해주세요");
+
+//     let year:Result<i32, ParseIntError> = input.trim().parse();
+
+//     match year {
+//         Ok(year) => {
+//             if year % 400 == 0 {
+//                 println!("{}", 1);
+//             } else if year % 4  == 0 && year % 100 != 0 {
+//                 println!("{}", 1);
+//             } else {
+//                 println!("{}", 0);
+//             }
+//         }
+
+//         Err(error) => {
+//             eprint!("err {}", error);
+//         }
+//     }
+// }
+
+// fn main () {
+//     let mut input = String::new();
+//     for _ in 0..2 {
+//         io::stdin().read_line(&mut input).expect("input 값을 확인해주세요");
+//     }
+
+//     let arr:Vec<i32> = input.trim_end().split("\n").map(|s| s.trim().parse().expect("파싱에러입니다.")).collect();
+
+//     let (x, y) = (arr[0], arr[1]);
+
+//     if x > 0 {
+//         if y > 0 {
+//             println!("1");
+//         } else {
+//             println!("4");
+//         }
+//     } else {
+//         if y > 0 {
+//             println!("2");
+//         } else {
+//             println!("3");
+//         }
+//     }
+// }
+
+// fn main () {
+//     let mut input = String::new();
+//     io::stdin().read_line(&mut input).expect("input 값을 확인해주세요");
+
+//     let arr: Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("파싱 에러입니다.")).collect();
+
+//     let (mut a, b) = (arr[0], arr[1]);
+//     let mut min: i32 = b - 45;
+
+//     if min < 0 {
+//         min = min + 60;
+//         if a == 0 {
+//             a = 23
+//         } else {
+//             a = a - 1
+//         }
+//     }
+
+//     println!("{} {}", a, min);
+// }
+
+// fn main () {
+//     let mut input = String::new();
+//     io::stdin().read_line(&mut input).expect("check input value"); 
+//     let arr:Vec<i32> = input.trim().split_whitespace().map(|val| val.trim().parse().expect("check value type")).collect();
+
+//     let (mut hour, mut minute) = (arr[0], arr[1]);
+
+//     input.clear();
+//     io::stdin().read_line(&mut input).expect("check input value"); 
+//     let spent_time: i32 = input.trim().parse().expect("check input type");
+
+//     // for _ in 0..2 {
+//         // io::stdin().read_line(&mut input).expect("check input value"); 
+//     // }
+
+//     // let arr:Vec<i32> = input.trim_end().split("\n").map(|val| val.trim().parse().expect("check value type")).collect();
+//     //let (mut hour, mut minute, spent_time) = (arr[0], arr[1], arr[2]);
+    
+//     let spend_hour = spent_time / 60;
+//     let spend_minute = spent_time % 60;
+
+//     if spend_hour > 0 {
+//         hour += spend_hour
+//     }
+    
+//     if minute + spend_minute >= 60 {
+//         hour += 1;
+//         minute += spend_minute - 60;
+//         if minute >=60 {
+//             hour += 1;
+//             minute -= 60;
+//         }
+//     } else {
+//         minute += spend_minute
+//     }
+
+//     if hour >= 24 {
+//         hour -= 24
+//     }
+
+//     print!("{} {}", hour, minute);
+// }
+
+fn main () {
+    let mut input = String::new();
+    std::io::stdin().read_line(&mut input).expect("check input value");
+
+    let vec: Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check value type")).collect();
+    
+    // 3개 다 같을때
+    if vec.iter().all(|&val| val == vec[0]) {
+        println!("{}", 10000 + vec[0]*1000)
+    } else {
+        // 3개다 다를 때
+        let hashset:std::collections::HashSet<_> = vec.iter().collect();
+        if hashset.len() == vec.len() {
+            println!("{}", vec.iter().max().unwrap() * 100)
+        } else {
+            // 2개만 같을 때
+            let mut hashmap = std::collections::HashMap::new();
+            let mut same_val = 0;
+            for &val in &vec {
+                if hashmap.get(&val).is_some() {
+                    same_val = val;
+                } else {
+                    hashmap.insert(val, 1);
+                }
+            }
+
+            println!("{}", same_val * 100 + 1000)
+        }    
+    }
+}
