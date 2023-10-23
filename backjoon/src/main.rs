@@ -358,33 +358,110 @@
 //     print!("{} {}", hour, minute);
 // }
 
-fn main () {
-    let mut input = String::new();
-    std::io::stdin().read_line(&mut input).expect("check input value");
+// //TODO: 한 번 더보기
+// fn main () {
+//     let mut input = String::new();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
 
-    let vec: Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check value type")).collect();
+//     let vec: Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check value type")).collect();
     
-    // 3개 다 같을때
-    if vec.iter().all(|&val| val == vec[0]) {
-        println!("{}", 10000 + vec[0]*1000)
-    } else {
-        // 3개다 다를 때
-        let hashset:std::collections::HashSet<_> = vec.iter().collect();
-        if hashset.len() == vec.len() {
-            println!("{}", vec.iter().max().unwrap() * 100)
-        } else {
-            // 2개만 같을 때
-            let mut hashmap = std::collections::HashMap::new();
-            let mut same_val = 0;
-            for &val in &vec {
-                if hashmap.get(&val).is_some() {
-                    same_val = val;
-                } else {
-                    hashmap.insert(val, 1);
-                }
-            }
+//     // 3개 다 같을때
+//     if vec.iter().all(|&val| val == vec[0]) {
+//         println!("{}", 10000 + vec[0]*1000)
+//     } else {
+//         // 3개다 다를 때
+//         let hashset:std::collections::HashSet<_> = vec.iter().collect();
+//         if hashset.len() == vec.len() {
+//             println!("{}", vec.iter().max().unwrap() * 100)
+//         } else {
+//             // 2개만 같을 때
+//             let mut hashmap = std::collections::HashMap::new();
+//             let mut same_val = 0;
+//             for &val in &vec {
+//                 if hashmap.get(&val).is_some() {
+//                     same_val = val;
+//                 } else {
+//                     hashmap.insert(val, 1);
+//                 }
+//             }
 
-            println!("{}", same_val * 100 + 1000)
-        }    
+//             println!("{}", same_val * 100 + 1000)
+//         }    
+//     }
+// }
+
+// fn main () {
+//     let mut input = String::new();
+
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+
+//     let num:i32 = input.trim().parse().expect("check value type");
+
+//     for i in 1..10 {
+//         println!("{0} * {1} = {2}", num, i, num*i);
+//     }
+// }
+
+// fn main() {
+//     let mut input = String::new();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+
+//     let mut answer = String::new();
+
+//     let num:i32 = input.trim().parse().expect("check input type");
+
+//     for _ in 0..num {
+//         input.clear();
+//         std::io::stdin().read_line(&mut input).expect("check input value");
+
+//         let arr:Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check value type")).collect();
+//         let added = arr[0] + arr[1];
+//         let added_str = added.to_string();
+//         // let added_char = char::from_digit(added as u32, 10).expect("Failed to convert to char");
+
+//         answer.push_str(&added_str);
+//         answer.push('\n');
+//     }   
+//     println!("{}", answer);
+// }
+
+
+// fn main() {
+//     let mut input = String::new();
+//     std::io::stdin().read_line(&mut input).expect("check the input values");
+
+//     let num: i64 = input.trim().parse().expect("check input type");
+    
+//     let mut result = 0;
+//     for i in 1..num+1 {
+//         result += i;
+//     }
+
+//     println!("{}", result);
+// }
+
+fn main() {
+    let mut input = String::new();
+    std::io::stdin().read_line(&mut input).expect("check input values");
+    let total_price: i32 = input.trim().parse().expect("check value types");
+
+    input.clear();
+    std::io::stdin().read_line(&mut input).expect("check input values");
+    let num: i32 = input.trim().parse().expect("check value types");
+    let mut result = 0;
+
+    for _ in 0..num {
+        input.clear();
+        std::io::stdin().read_line(&mut input).expect("check input values");
+
+        let arr:Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check parse types")).collect();
+        let (price, count) = (arr[0], arr[1]);
+        result += price * count;
+    }
+
+    if total_price == result {
+        println!("{}", "Yes");
+    } else {
+        println!("{}", "No");
     }
 }
