@@ -440,28 +440,125 @@
 //     println!("{}", result);
 // }
 
-fn main() {
-    let mut input = String::new();
-    std::io::stdin().read_line(&mut input).expect("check input values");
-    let total_price: i32 = input.trim().parse().expect("check value types");
+// fn main() {
+//     let mut input = String::new();
+//     std::io::stdin().read_line(&mut input).expect("check input values");
+//     let total_price: i32 = input.trim().parse().expect("check value types");
 
-    input.clear();
-    std::io::stdin().read_line(&mut input).expect("check input values");
-    let num: i32 = input.trim().parse().expect("check value types");
-    let mut result = 0;
+//     input.clear();
+//     std::io::stdin().read_line(&mut input).expect("check input values");
+//     let num: i32 = input.trim().parse().expect("check value types");
+//     let mut result = 0;
 
-    for _ in 0..num {
-        input.clear();
-        std::io::stdin().read_line(&mut input).expect("check input values");
+//     for _ in 0..num {
+//         input.clear();
+//         std::io::stdin().read_line(&mut input).expect("check input values");
 
-        let arr:Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check parse types")).collect();
-        let (price, count) = (arr[0], arr[1]);
-        result += price * count;
-    }
+//         let arr:Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check parse types")).collect();
+//         let (price, count) = (arr[0], arr[1]);
+//         result += price * count;
+//     }
 
-    if total_price == result {
-        println!("{}", "Yes");
-    } else {
-        println!("{}", "No");
-    }
+//     if total_price == result {
+//         println!("{}", "Yes");
+//     } else {
+//         println!("{}", "No");
+//     }
+// }
+
+// fn main() {
+//     let mut input = String::new();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+
+//     let bytes: i32 = input.trim().parse().expect("check pased value type");
+
+//     let mut result = String::from("int");
+
+//     let long_count = bytes / 4;
+
+//     for _ in 0..long_count {
+//         let concat_str = "long ".to_string();
+//         result = concat_str + &result;
+//     }
+
+//     println!("{}", result);
+// }
+
+// fn main () {
+//     let mut input = String::new();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+//     // std::io::stdin().read_line(&mut input).expect("check input value");
+//     let num: i32 = input.trim().parse().expect("check value type");
+
+//     let mut result = String::new();
+
+//     for _ in 0..num {
+//       input.clear();
+
+//       std::io::stdin().read_line(&mut input).expect("check input value");
+//       let arr: Vec<i64> = input.split_whitespace().map(|val| val.trim().parse().expect("check valud type")).collect();
+
+//       let (a, b) = (arr[0], arr[1]);
+//       let added = a + b;
+
+//       result.push_str(&added.to_string());
+//       result.push('\n');
+//     }
+
+//     println!("{}", result);
+// }
+
+// fn main () {
+//     let mut input = String::new();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+//     // std::io::stdin().read_line(&mut input).expect("check input value");
+//     let num: i32 = input.trim().parse().expect("check value type");
+
+//     let mut result = Vec::new();
+
+//     for _ in 0..num {
+//       input.clear();
+
+//       std::io::stdin().read_line(&mut input).expect("check input value");
+//       let arr: Vec<i64> = input.split_whitespace().map(|val| val.trim().parse().expect("check valud type")).collect();
+
+//       let (a, b) = (arr[0], arr[1]);
+//       let added = a + b;
+//       result.push(added);
+//     }
+
+//     for (idx, value) in result.iter().enumerate()  {
+//       println!("Case #{}: {}", idx + 1, value);
+//     }
+// }
+
+
+// fn main () {
+//     let mut input = String::new();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+//     // std::io::stdin().read_line(&mut input).expect("check input value");
+//     let num: i32 = input.trim().parse().expect("check value type");
+
+//     for i in 0..num {
+//       input.clear();
+
+//       std::io::stdin().read_line(&mut input).expect("check input value");
+//       let arr: Vec<i64> = input.split_whitespace().map(|val| val.trim().parse().expect("check valud type")).collect();
+
+//       let (a, b) = (arr[0], arr[1]);
+//       println!("Case #{}: {} + {} = {}", i + 1, a, b, a + b);
+//     }
+// }
+
+fn main () {
+  let mut input = String::new();
+  std::io::stdin().read_line(&mut input).expect("check input value");
+
+  let num: usize = input.trim().parse().expect("check input value for parse");
+
+
+  for i in 1..num + 1 {
+    let star = "*".repeat(i);
+    println!("{}", star);
+  }
 }
