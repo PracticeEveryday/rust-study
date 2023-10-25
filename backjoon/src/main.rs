@@ -591,14 +591,60 @@
 //   }
 // }
 
+// fn main() {
+//   loop {
+//     let mut input = String::new();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+//     let arr: Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check the pased type")).collect();
+//     if arr.len() == 0 {
+//         break;
+//     }
+//     println!("{}", arr[0] + arr[1]);
+//   }
+// }
+
+// fn main () {
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check the input value");
+
+//   let total_count: i32 = input.trim().parse().expect("check the parse value");
+//   input.clear();
+
+//   std::io::stdin().read_line(&mut input).expect("check the input value");
+//   let num_arr: Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check the parsed value")).collect();
+
+//   input.clear();
+//   std::io::stdin().read_line(&mut input).expect("check the input value");
+//   let check_value:i32 = input.trim().parse().expect("check input value");
+
+//   let mut result_count = 0;
+
+//   for i in num_arr {
+//     if i == check_value {
+//       result_count += 1;
+//     }
+//   }
+//   println!("{}", result_count);
+// }
+
 fn main() {
-  loop {
-    let mut input = String::new();
-    std::io::stdin().read_line(&mut input).expect("check input value");
-    let arr: Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check the pased type")).collect();
-    if arr.len() == 0 {
-        break;
+  let mut input = String::new();
+  std::io::stdin().read_line(&mut input).expect("check the input value");
+
+  let arr :Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check input parse type")).collect();
+  let (_, standard) = (arr[0], arr[1]);
+
+  input.clear();
+  std::io::stdin().read_line(&mut input).expect("check the input value");
+
+  let mut result = String::new();
+  let comparison_arr :Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check input parse type")).collect();
+  for i in 0..comparison_arr.len() {
+    if comparison_arr[i] < standard {
+      let str_i = comparison_arr[i].to_string();
+        result.push_str(&format!("{} ", str_i));  
+      
     }
-    println!("{}", arr[0] + arr[1]);
   }
+  println!("{}", result);
 }
