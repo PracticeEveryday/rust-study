@@ -550,15 +550,55 @@
 //     }
 // }
 
-fn main () {
-  let mut input = String::new();
-  std::io::stdin().read_line(&mut input).expect("check input value");
+// fn main () {
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
 
-  let num: usize = input.trim().parse().expect("check input value for parse");
+//   let num: usize = input.trim().parse().expect("check input value for parse");
 
 
-  for i in 1..num + 1 {
-    let star = "*".repeat(i);
-    println!("{}", star);
+//   for i in 1..num + 1 {
+//     let star = "*".repeat(i);
+//     println!("{}", star);
+//   }
+// }
+
+//TODO: 별찍기 다시보기
+// fn main () {
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("");
+//   let num: usize = input.trim().parse().expect("check the value type");
+
+//   for i in 1..num+1 {
+//     let space_count = " ".repeat(num - i);
+//     let star_count = "*".repeat(i);
+
+//     println!("{}{}", space_count, star_count);
+//   }
+// }
+
+// fn main() {
+//   loop {
+//     let mut input = String::new();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+//     let arr: Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check the pased type")).collect();
+
+//     if input.trim() == "0 0"{
+//       break;
+//     }
+
+//     println!("{}", arr[0] + arr[1]);
+//   }
+// }
+
+fn main() {
+  loop {
+    let mut input = String::new();
+    std::io::stdin().read_line(&mut input).expect("check input value");
+    let arr: Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check the pased type")).collect();
+    if arr.len() == 0 {
+        break;
+    }
+    println!("{}", arr[0] + arr[1]);
   }
 }
