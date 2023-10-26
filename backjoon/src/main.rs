@@ -627,24 +627,180 @@
 //   println!("{}", result_count);
 // }
 
-fn main() {
-  let mut input = String::new();
-  std::io::stdin().read_line(&mut input).expect("check the input value");
+// fn main() {
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check the input value");
 
-  let arr :Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check input parse type")).collect();
-  let (_, standard) = (arr[0], arr[1]);
+//   let arr :Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check input parse type")).collect();
+//   let (_, standard) = (arr[0], arr[1]);
 
-  input.clear();
-  std::io::stdin().read_line(&mut input).expect("check the input value");
+//   input.clear();
+//   std::io::stdin().read_line(&mut input).expect("check the input value");
 
-  let mut result = String::new();
-  let comparison_arr :Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check input parse type")).collect();
-  for i in 0..comparison_arr.len() {
-    if comparison_arr[i] < standard {
-      let str_i = comparison_arr[i].to_string();
-        result.push_str(&format!("{} ", str_i));  
+//   let mut result = String::new();
+//   let comparison_arr :Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check input parse type")).collect();
+//   for i in 0..comparison_arr.len() {
+//     if comparison_arr[i] < standard {
+//       let str_i = comparison_arr[i].to_string();
+//         result.push_str(&format!("{} ", str_i));  
       
-    }
-  }
-  println!("{}", result);
-}
+//     }
+//   }
+//   println!("{}", result);
+// }
+
+// fn main () {
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+//   let num: i32 = input.trim().parse().expect("check value for parsing");
+//   input.clear();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+  // let num_arr: Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check parsed value")).collect();
+//   let max_num = num_arr.iter().max().unwrap();
+//   let min_num = num_arr.iter().min().unwrap(); 
+
+//   println!("{} {}", min_num, max_num);
+// }
+
+// fn main () {
+//   // 첫째줄에 최대값, 둘째줄에 위치 출력
+//   let mut vec: Vec<i32> = Vec::new();// --> heap
+  
+//   for _ in 0..9 {
+//     let mut input = String::new();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+    
+//     vec.push(input.trim().parse().unwrap());
+//   }
+
+//   let max_num = vec.iter().max().expect("not iterator type");
+//   let max_idx = vec.iter().position(|val| val == max_num ).expect("not found index");
+  
+//   println!("{}", max_num);
+//   println!("{}", max_idx+1);
+// }
+
+// fn main () {
+//   // N개의 바구니가 있다.
+//   // 1~N까지 번호가 매겨져 있꼬
+//   // M번 공을 넣을 것이다.
+    
+//   // -- condition
+//   // 가장 처음 바구니에는 공이 없다.
+//   // 한 번 공을 넣을 때 공 넣을 바구니 범위를 정하고, 모드 같은 번호를 넣는다.
+//   // 만약 바구니에 공이 들어 있으면 들어 있는 공을 빼고 새 공을 넣는다.
+
+//   // --input
+//   // 첫 줄에 바구니 개수, 몇 번 넣을 건지 나온다 -> 5 4 // 5개, 4번 넣을 것
+//   // 두번째 줄 부터 i j k 공넣는 방법이 나온다 -> 2 5 6 // 2번 바구니부터 5번 바구니까지 6번 공을 넣는다. -> 공이 들어 있으면 빼고 넣을 공을 넣어라.
+
+//   // --result
+//   // 1번 바구니부터 N번 바구니까지 들어 있는 공의 숫자를 공백을 구분해 출력해라 // 공이 없으면 0을 출력
+  
+
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+//   let input_arr: Vec<usize> = input.split_whitespace().map(|val| val.trim().parse().expect("check parsed type")).collect();
+      
+//   let (basket_count, input_count) = (input_arr[0], input_arr[1]);
+//   // 바스킷을 처음에 0으로 채운다.
+//   let mut basket = vec![0; basket_count];
+  
+//   for _ in 0..input_count {
+//     input.clear();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+
+//     let input_arr: Vec<i32> = input.split_whitespace().map(|val| val.trim().parse().expect("check parsed type")).collect();
+
+//     let (start_input_basket_number, end_input_basket_number, ball_number) = (input_arr[0], input_arr[1], input_arr[2]);
+    
+//     for bascket_number in start_input_basket_number-1..end_input_basket_number {
+//       if basket[bascket_number as usize] == 0 {
+//         basket[bascket_number as usize] = ball_number
+//       } else {
+//         basket[bascket_number as usize] = ball_number
+//       }
+//     }
+//   }
+//   // println!("{:?}", basket);
+//   let formatted_string: String = basket.iter().map(|&x| x.to_string()).collect::<Vec<String>>().join(" ");
+    
+//   println!("{}", formatted_string);
+  
+// }
+
+// fn main() {
+//   // 첫 번째 줄에 N 과 M이 주어진다.
+//   // N은 바구니 개수 M은 변경할 케이스 개수
+//   // 2번째 줄부터 공을 교환할 방법이 주어진다.
+  
+//   // --condition
+//   // i j는 i번 바구니와 j번 바구니를 교환
+
+//   // -- result
+//   // 들어 있는 공의 번호를 공백으로 출력
+
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+//   let input_arr:Vec<usize> = input.split_whitespace().map(|val| val.trim().parse().expect("check parsed value")).collect();
+//   let (bascket_count, try_count) = (input_arr[0], input_arr[1]);
+//   let mut bascket = Vec::new();
+
+//   for i in 0..bascket_count {
+//     bascket.push(i+1);
+//   }
+  
+//   for _ in 0..try_count {
+//     input.clear();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+//     let input_arr:Vec<usize> = input.split_whitespace().map(|val| val.trim().parse().expect("check parsed value")).collect();
+//     let (bascket_one, bascket_two) = (input_arr[0], input_arr[1]);
+
+//     let temp = bascket[bascket_one - 1];
+//     bascket[bascket_one - 1] = bascket[bascket_two - 1];
+//     bascket[bascket_two - 1] = temp;
+//   }
+
+//   let mut result_str = String::new();
+//   bascket.iter().for_each(|val| result_str.push_str(&format!("{} ", val)));
+
+
+//   println!("{}", result_str);
+
+//   /*
+//     5 4
+//     1 2
+//     3 4
+//     1 4
+//     2 2
+//     3 1 4 2 5
+//    */
+// }
+
+// fn main () {
+//   let mut i: usize = 1;
+//   // let mut vec = vec![0; 29];
+//   // vec.iter_mut().enumerate().for_each(|(i, el)| *el = i + 1);
+//   let mut vec: Vec<usize> = (1..=30).collect();
+//   let mut input = String::new();
+//   while i < 29 {
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+//     let num: usize = input.trim().parse().expect("check parsed value");
+
+//     let vec_idx = vec.iter().position(|val| val == &num).expect("not found idx");
+
+//     vec.remove(vec_idx);
+
+//     input.clear();
+//     // i++; >> i++를 안전하지 않은 것으로 간주함.
+//     i += 1;
+//   }
+
+//   // collect::<Vec<String>> => 백터로 문자열을 모으는 것!!!
+//   let my_string: String = vec.iter().map(|x| x.to_string()).collect::<Vec<String>>().join(" "); 
+//   println!("{}", my_string);
+// }
