@@ -804,3 +804,88 @@
 //   let my_string: String = vec.iter().map(|x| x.to_string()).collect::<Vec<String>>().join(" "); 
 //   println!("{}", my_string);
 // }
+
+// fn main () {
+//   // 10개를 입력 받기
+//   // 42로 나누기
+
+//   // result
+//   // 서로 다른 나머지 개수
+
+//   let mut hash_set: std::collections::HashSet<usize> = std::collections::HashSet::new();
+
+//   for _ in 0..10 {
+//     let mut input = String::new();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+
+//     let division_num: usize = input.trim().parse().expect("check parsed value type");
+//     hash_set.insert(division_num % 42);
+//     input.clear();
+//   }
+
+//   println!("{}", hash_set.len());
+// }
+
+// fn main () {
+//   // -- background
+//   // N개의 바구니 존재 -> 1 ~ N 번 숫자 존재
+//   // 바구니 순서를 바꿀거다.
+
+//   // 첫줄에 N(개수), M(몇 번 바꿀 건가
+//   // i, j -> i 바구니부터 j 바구니까지 순서를 역순으로 만들자
+
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+
+//   let input_arr = input.split_whitespace().map(|val| val.trim().parse().expect("check parsed value")).collect::<Vec<usize>>();
+//   let (bascket_count, try_count) = (input_arr[0], input_arr[1]);
+
+//   let mut bascket = (1..=bascket_count).collect::<Vec<usize>>();
+  
+//   for _ in 0..try_count {
+//     input.clear();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+
+//     let input_arr = input.split_whitespace().map(|val| val.trim().parse().expect("check parsed value")).collect::<Vec<usize>>();
+//     let (start_basket_number, end_basket_number) = (input_arr[0], input_arr[1]);
+//     // 1 4 -> 0번째부터 3번째까지
+    
+//     let first_vec = bascket[0..start_basket_number-1].to_vec();
+//     let reversed_vec = bascket[start_basket_number-1..end_basket_number].to_vec().into_iter().rev().collect::<Vec<usize>>();
+//     let last_vec = bascket[end_basket_number..].to_vec();
+
+//     bascket = first_vec.iter().chain(reversed_vec.iter()).chain(last_vec.iter()).cloned().collect::<Vec<usize>>();
+//   }
+//   let my_string: String = bascket.iter().map(|val| val.to_string()).collect::<Vec<String>>().join(" "); 
+//   println!("{}", my_string);
+//   /*
+//     5 4
+//     1 2
+//     3 4
+//     1 4
+//     2 2
+//     3 4 1 2 5
+//    */
+// }
+
+fn main () {
+  let mut input = String::new();
+  std::io::stdin().read_line(&mut input).expect("check the input value");
+
+  let exam_count: i32 = input.trim().parse().expect("check parsed value");
+
+  input.clear();
+  std::io::stdin().read_line(&mut input).expect("check the input value");
+
+  let score_arr = input.split_whitespace().map(|val| val.trim().parse().expect("check parsed value")).collect::<Vec<i32>>();
+
+  let max_value = score_arr.iter().max().unwrap();
+  
+  let new_score_arr: Vec<f32> = score_arr.iter().map(|val| *val as f32 / *max_value as f32 * 100.0).collect();
+
+  let sum: f32 = new_score_arr.iter().sum();
+  let result = sum as f32 / new_score_arr.len() as f32;
+
+  println!("{:.5}", result);
+}
