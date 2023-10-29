@@ -115,12 +115,65 @@
 //     dbg!(&string2[0..4]); // it is inside 'ㄴ' (bytes 3..6) of `ㄱㄴ`'
 // }
 
-fn main () {
-  let str1 = String::from("test");
-  let str2 = String::from("test");
+// fn main () {
+//   let str1 = String::from("test");
+//   let str2 = String::from("test");
 
-  println!("{:p}", str1.as_ptr());
-  println!("{:p}", str2.as_ptr());
+//   println!("{:p}", str1.as_ptr());
+//   println!("{:p}", str2.as_ptr());
 
-  dbg!(str2);
-}
+//   dbg!(str2);
+// }
+
+
+// fn main() {
+//   print!("         ,r'\"7\n");
+//   print!("r`-_   ,'  ,/\n");
+//   print!(" \\. \". L_r'\n");
+//   print!("   `~\\/\n");
+//   print!("      |\n");
+//   print!("      |\n");
+// }
+
+/*
+         ,r'"7
+r`-_   ,'  ,/
+ \. ". L_r'
+   `~\/
+      |
+      |
+
+*/
+
+
+// fn main () {
+//   // background
+//   // 흰색 체스말에는 여러개가 없다.
+//   // 킹 퀸 룩 비슙 나이트 폰
+//   // 1  1  2   2     2    8
+//   // 개수가 주어 질 때 몇 개를 더하고 빼야 되는 지 출력해라
+
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+//   // 원래 있어야 하는 체스의 개수
+//   let collect_arr = [1, 1, 2, 2, 2, 8];
+
+//   let white_chess_arr: Vec<i32> = input.split_whitespace()
+//                                         .map(|val| val.trim().parse().expect("check parsed type")).collect();
+
+//   let mut result_str = String::new();
+
+//   white_chess_arr.iter().enumerate().for_each(|(idx, val)| {
+//     if val == &collect_arr[idx] {
+//       result_str.push_str("0 ");
+//     } else {
+//       let sub_num: i32 = &collect_arr[idx] - val;
+//       result_str.push_str(&format!("{} ", &sub_num.to_string()));
+//     }
+//   });
+
+//   println!("{}", result_str);
+//   // 0 1 2 2 2 7 
+//   // -> 1 0 0 0 1
+// }
