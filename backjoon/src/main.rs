@@ -448,6 +448,51 @@ fn main () {
   // -- condition
   // 20 줄에 걸쳐 과목명, 학점, 등급이 공백으로 구분되어 주어진다.
   // pass 과목은 계산에서 제외한다!
+  
+  let mut total_grade:f32 = 0.0;
+  let mut total_class:f32 = 0.0;
+  let mut grade_hashmap: std::collections::HashMap<&str, f32> = std::collections::HashMap::new();
+
+  grade_hashmap.insert("A+", 4.5);
+  grade_hashmap.insert("A0", 4.0);
+  grade_hashmap.insert("B+", 3.5);
+  grade_hashmap.insert("B0", 3.0);
+  grade_hashmap.insert("C+", 2.5);
+  grade_hashmap.insert("C0", 2.0);
+  grade_hashmap.insert("D+", 1.5);
+  grade_hashmap.insert("D0", 1.0);
+  grade_hashmap.insert("F", 0.0);
+
+  for _ in 0..20 {
+    let mut input = String::new();
+    std::io::stdin().read_line(&mut input).expect("check input value");  
+    
+    let input_arr: Vec<&str> = input.split_whitespace().collect();
+    let (_, class ,grade ) = (input_arr[0], input_arr[1], input_arr[2]);
+    
+    if grade == "P" {
+      continue;
+    }
+
+    total_class = total_class + class.trim().parse::<f32>().expect("not a number");
+    // 전공 평점은 학점 * 과목 평점 
+    total_grade = total_grade + (class.trim().parse::<f32>().expect("not a number") * grade_hashmap.get(grade).unwrap());
+
+    input.clear();
+  }
+
+  println!("{:.6}", total_grade / total_class);
 
 
+ /*
+    A+	4.5
+    A0	4.0
+    B+	3.5
+    B0	3.0
+    C+	2.5
+    C0	2.0
+    D+	1.5
+    D0	1.0
+    F	0.0
+  */ 
 }
