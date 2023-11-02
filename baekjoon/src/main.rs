@@ -222,6 +222,81 @@
 // }
 
 
+// fn main () {
+//   // 더하기 사이클
+//   // 2자리이면 각 자리를 더한다.
+  
+//   // --condition
+//   // 주어진 수가 한자리면 0을 붙인다.
+//   // 2자리이면 각 자리를 더한다. -> 더한 수가 한자리면 앞의 숫자의 오른쪽 숫자를 더한다.
+
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input values");
+
+  
+//   let mut input_num: usize = input.trim().parse().expect("check parsed value");
+//   // 처음 값 캐시
+//   let cached_input = input_num; 
+
+//   if cached_input == 1 {
+//     println!("{}", 60);
+//     return;
+//   } 
+
+//   if cached_input == 0 {
+//     println!("{}", 1); 
+//     return;
+//   }
+
+//   // 더하기 횟수
+//   let mut add_count: usize = 0;
+
+//   // 더한 값
+//   let mut result_num:usize = 0;
+
+//   let first_num = input_num.to_string().chars().nth(0).unwrap().to_owned().to_digit(10).unwrap() as usize;
+//   let secone_num = input_num.to_string().chars().nth(1).unwrap().to_owned().to_digit(10).unwrap() as usize;
+
+//   if input_num < 10 {
+//     // result_num에 input_num + input_num을 준다.
+//     result_num = input_num * 2;
+//   } else {
+//     // result_num에는 숫자의 첫번째 자리수를 더해준다.
+//     result_num = first_num + secone_num;
+//   }
+//   // 10보다 작으면 count 에 1을 더하고
+//   add_count = add_count + 1;
+//   // input_num은 자동적으로 result_num으로 바뀐다.
+//   input_num = result_num;
+
+//   while cached_input != result_num {
+//     // 더하기 횟수 증가
+//     add_count = add_count + 1;    
+
+//     if result_num > 10 {
+//       // 각 자리 수 합 + 이전 값의 일의 자리수 붙여주기
+//       let 십의자리수 = result_num.to_string().chars().nth(0).unwrap().to_owned().to_digit(10).unwrap() as usize;
+//       let 일의자리수 = result_num.to_string().chars().nth(1).unwrap().to_owned().to_digit(10).unwrap() as usize;
+//       let 새로운합 = 일의자리수 + 십의자리수;
+//       if 새로운합 > 10 {
+//         let 새로운합의일의자리수 = 새로운합.to_string().chars().nth(1).unwrap().to_owned().to_digit(10).unwrap() as usize;
+//         result_num = 일의자리수 * 10 + 새로운합의일의자리수
+//       } else {
+//         result_num = 일의자리수 * 10 + 새로운합
+//       }
+//     } else if result_num == 10 {
+//       // let 일의자리수 = result_num.to_string().chars().nth(1).unwrap().to_owned().to_digit(10).unwrap() as usize;
+//       result_num = secone_num * 10;
+//     } else {
+//       // 10 보다 작다.
+//       result_num = secone_num * 10 + result_num;
+//     }
+    
+//   }
+
+//   println!("{}", add_count - 1) 
+// }
+
 fn main () {
 
 }
