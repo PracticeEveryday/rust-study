@@ -92,49 +92,136 @@
 //    */
 // }
 
-fn main () {
-  // 세로 읽기
-  // 빈칸은 지나치고 읽으라!
-  let mut input = String::new();
-  let mut vec_hashmap: std::collections::HashMap<usize, String> = std::collections::HashMap::new();
+// fn main () {
+//   // 세로 읽기
+//   // 빈칸은 지나치고 읽으라!
+//   let mut input = String::new();
+//   let mut vec_hashmap: std::collections::HashMap<usize, String> = std::collections::HashMap::new();
 
-  for _ in 0..5 {
-    std::io::stdin().read_line(&mut input).expect("check input value");
-    let mut input_str = input.trim().to_string();
+//   for _ in 0..5 {
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+//     let mut input_str = input.trim().to_string();
     
-    while input_str.len() == 6 {
-      input_str.push('*')
-    }
+//     while input_str.len() == 6 {
+//       input_str.push('*')
+//     }
 
-    for (key, c) in input_str.chars().enumerate() {
-      // 가변 참조로 얻기..
-      if let Some(count) = vec_hashmap.get_mut(&key) {
-        // hashmap이 있으면 
-        count.push(c);
-      } else {
-        // 없으면
-        vec_hashmap.insert(key, String::from(c));
-      }
-    }
-    input.clear();
-  }
-  let mut result_str = String::new();
+//     for (key, c) in input_str.chars().enumerate() {
+//       // 가변 참조로 얻기..
+//       if let Some(count) = vec_hashmap.get_mut(&key) {
+//         // hashmap이 있으면 
+//         count.push(c);
+//       } else {
+//         // 없으면
+//         vec_hashmap.insert(key, String::from(c));
+//       }
+//     }
+//     input.clear();
+//   }
+//   let mut result_str = String::new();
 
-  // dbg!(&vec_hashmap);
-  for key in 0..20 {
-      if let Some(value) = vec_hashmap.get(&key) {
-          result_str.push_str(value);
-      }
-  }
+//   // dbg!(&vec_hashmap);
+//   for key in 0..20 {
+//       if let Some(value) = vec_hashmap.get(&key) {
+//           result_str.push_str(value);
+//       }
+//   }
 
-  println!("{}", result_str.replace("*", ""));
-  /*
-  AABCDD
-  afzz
-  09121
-  a8EWg6
-  P5h3kx
+//   println!("{}", result_str.replace("*", ""));
+//   /*
+//   AABCDD
+//   afzz
+//   09121
+//   a8EWg6
+//   P5h3kx
   
-  Aa0aPAf985Bz1EhCz2W3D1gkD6x
-   */ 
+//   Aa0aPAf985Bz1EhCz2W3D1gkD6x
+//    */ 
+// }
+
+// fn main () {
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+//   let input_count: usize = input.trim().parse().expect("check parsed value");
+
+//   let mut word_vec: Vec<String> = Vec::new();
+
+  
+//   for _ in 0..input_count {
+//     let mut input = String::new();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+
+//     let input_str = input.trim().to_string();
+//     word_vec.push(input_str);
+
+//     input.clear();
+//   }
+
+//   word_vec.sort_by(|a, b| {
+//     let len_cmp = a.len().cmp(&b.len());
+//     if len_cmp == std::cmp::Ordering::Equal {
+//         // 길이가 같을 때, 문자열 내용을 오름차순으로 비교
+//         a.cmp(b)
+//     } else {
+//         len_cmp
+//     }
+//   });
+
+//   let result_str = word_vec.join("\n");
+//   println!("{}", result_str);
+// }
+
+// fn main () {
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+//   let try_count: i64 = input.trim().parse().expect("check parsed value");
+//   let mut num_vec: Vec<i64> = Vec::new();
+//   for _ in 0..try_count {
+//     input.clear();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+
+//     let input_num: i64 = input.trim().parse().expect("check parsed value");
+//     num_vec.push(input_num);
+//   }
+
+//   num_vec.sort();
+
+//   let result_str: String = num_vec
+//     .iter()
+//     .map(|num| num.to_string())
+//     .collect::<Vec<String>>()
+//     .join("\n");
+
+//   println!("{}", result_str);
+// }
+
+// fn main () {
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+//   input.clear();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+//   let mut input_vec: Vec<usize> = input.split_whitespace().map(|val| val.trim().parse().expect("check parsed input type")).collect();
+//   input_vec.sort();
+
+//   let mut result_num = 0;  
+//   for (idx, value) in input_vec.iter().enumerate(){
+//     result_num = result_num + value * (input_vec.len() - idx);
+//   }
+
+//   println!("{}", result_num);
+//   /*
+//   5
+//   3 1 4 3 2
+
+//   32
+//  */
+// }
+
+
+fn main () {
+
 }
