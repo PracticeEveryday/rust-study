@@ -297,38 +297,157 @@
 //   println!("{}", add_count - 1) 
 // }
 
-fn main () {
-  // 55 -> 50 -> 05 -> 55
-  let mut input = String::new();
-  std::io::stdin().read_line(&mut input).expect("check input value");
+// fn main () {
+//   // 55 -> 50 -> 05 -> 55
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
 
-  let cycle_num: usize = input.trim().parse().expect("check input type");
-  let mut cycled_num = cycle_add(cycle_num);
-  let mut count = 1;
-  while cycle_num != cycled_num {
-      cycled_num = cycle_add(cycled_num);
-      count = count + 1;
-  }
-  println!("{}", count);
-}
+//   let cycle_num: usize = input.trim().parse().expect("check input type");
+//   let mut cycled_num = cycle_add(cycle_num);
+//   let mut count = 1;
+//   while cycle_num != cycled_num {
+//       cycled_num = cycle_add(cycled_num);
+//       count = count + 1;
+//   }
+//   println!("{}", count);
+// }
 
-fn cycle_add(num: usize) -> usize {
-    let mut result = Vec::new();
-    let mut n = num;
-    if num == 0 {
-      return 0
-    }
+// fn cycle_add(num: usize) -> usize {
+//     let mut result = Vec::new();
+//     let mut n = num;
+//     if num == 0 {
+//       return 0
+//     }
 
-    while n > 0 {
-        result.push(n % 10);
-        n /= 10;
-    }
+//     while n > 0 {
+//         result.push(n % 10);
+//         n /= 10;
+//     }
 
-    result.reverse();
+//     result.reverse();
     
-    if result.len() == 1 {
-      return num * 10 + num
-    } else {
-      return result[1] * 10 + (result[0] + result[1]) % 10
-    }
+//     if result.len() == 1 {
+//       return num * 10 + num
+//     } else {
+//       return result[1] * 10 + (result[0] + result[1]) % 10
+//     }
+// }
+
+// fn main () {
+//   println!("{}", "강한친구 대한육군");
+//   println!("{}", "강한친구 대한육군");
+// }
+
+// fn main () {
+//   // background
+//   // 요세푸스 순열 구하기
+//   // 순서대로 K 번째 사람을 제거 -> 남은 사람들 끼리에서 원을 이어나간다! 모두 제거 될 때까지 제거 되는 순서를 출력해라
+
+
+//   // --condition
+//   // N K -> N: 사람 명수 K: 제거되는 번째 사람
+
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+//   let input_arr: Vec<usize> = input.split_whitespace().map(|val| val.trim().parse().expect("check parsed value")).collect();
+//   let (peaple_num, mut die_num) = (input_arr[0], input_arr[1]);
+//   die_num = die_num - 1;
+//   let cached_die_num = die_num;
+//   let mut sequence_vec: Vec<usize> = (1..=peaple_num).collect();
+//   let mut result_vec :Vec<usize> = Vec::new();
+
+//   while sequence_vec.len() != 0 {
+//     if let Some(&peaple) = sequence_vec.get(die_num) {
+//       // 죽은 사람
+//       result_vec.push(peaple);
+//       sequence_vec.remove(die_num);
+//       die_num = die_num + cached_die_num;
+//       // 다음에 죽을 사람 특정하기
+//       while die_num >= sequence_vec.len() {
+//       if sequence_vec.len() == 0 {
+//         break;
+//       }
+//         die_num = die_num - sequence_vec.len();
+//       }
+//     }  
+//   }
+  
+//   let result_str = result_vec.iter().map(|val| val.to_string()).collect::<Vec<String>>().join(", ");
+
+//   println!("<{}>", result_str);
+
+//   /*
+//     7 3
+//     <3, 6, 2, 7, 5, 1, 4>
+//    */
+// }
+
+// fn main () {
+//   // 주어진 N개 중 소수의 개수를 찾기
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+//   input.clear();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+//   let num_vec: Vec<u32> = input.split_ascii_whitespace().map(|val| val.trim().parse().expect("check parsed value")).collect();
+
+//   let mut count = 0;
+
+//   num_vec.iter().for_each(|&val| {
+//     let is_decimal = is_prime(val);
+//     if is_decimal {
+//       count = count + 1;
+//     }
+//   });
+
+//   println!("{}", count);
+// }
+
+
+// fn is_prime(n: u32) -> bool {
+//     if n <= 1 {
+//         return false; // 1과 0은 소수가 아닙니다.
+//     }
+
+//     if n <= 3 {
+//         return true; // 2와 3은 소수입니다.
+//     }
+
+//     if n % 2 == 0 || n % 3 == 0 {
+//         return false; // 2 또는 3으로 나누어지면 소수가 아닙니다.
+//     }
+
+//     let mut i = 5;
+//     while i * i <= n {
+//         if n % i == 0 || n % (i + 2) == 0 {
+//             return false; // 5 이상의 숫자 중에서 소수가 아닌 것을 찾습니다.
+//         }
+//         i += 6;
+//     }
+
+//     true
+// }
+
+
+fn main () {
+  let mut input = String::new();
+  for _ in 0..3 {
+    std::io::stdin().read_line(&mut input).expect("check input value");
+  }
+
+  let input_vec: Vec<usize> = input.trim_end().split("\n").map(|val| val.trim().parse().expect("check parsed value")).collect();
+  dbg!(&input_vec);
+  let multipled = input_vec[0] * input_vec[1] * input_vec[2];
+  dbg!(&multipled);
+  let mut check_idx = vec![0;10];
+
+  multipled.to_string().chars().for_each(|c| {
+    let num = c.to_digit(10).unwrap() as usize;
+    check_idx[num] = check_idx[num] + 1;
+  });
+
+  let result_str = check_idx.iter().map(|val| val.to_string()).collect::<Vec<String>>().join("\n");
+
+  println!("{}", result_str);
 }
