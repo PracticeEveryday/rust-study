@@ -298,5 +298,37 @@
 // }
 
 fn main () {
+  // 55 -> 50 -> 05 -> 55
+  let mut input = String::new();
+  std::io::stdin().read_line(&mut input).expect("check input value");
 
+  let cycle_num: usize = input.trim().parse().expect("check input type");
+  let mut cycled_num = cycle_add(cycle_num);
+  let mut count = 1;
+  while cycle_num != cycled_num {
+      cycled_num = cycle_add(cycled_num);
+      count = count + 1;
+  }
+  println!("{}", count);
+}
+
+fn cycle_add(num: usize) -> usize {
+    let mut result = Vec::new();
+    let mut n = num;
+    if num == 0 {
+      return 0
+    }
+
+    while n > 0 {
+        result.push(n % 10);
+        n /= 10;
+    }
+
+    result.reverse();
+    
+    if result.len() == 1 {
+      return num * 10 + num
+    } else {
+      return result[1] * 10 + (result[0] + result[1]) % 10
+    }
 }
