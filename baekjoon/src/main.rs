@@ -430,24 +430,91 @@
 // }
 
 
+// fn main () {
+//   let mut input = String::new();
+//   for _ in 0..3 {
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+//   }
+
+//   let input_vec: Vec<usize> = input.trim_end().split("\n").map(|val| val.trim().parse().expect("check parsed value")).collect();
+//   let multipled = input_vec[0] * input_vec[1] * input_vec[2];
+//   let mut check_idx = vec![0;10];
+
+//   multipled.to_string().chars().for_each(|c| {
+//     let num = c.to_digit(10).unwrap() as usize;
+//     check_idx[num] = check_idx[num] + 1;
+//   });
+
+//   let result_str = check_idx.iter().map(|val| val.to_string()).collect::<Vec<String>>().join("\n");
+
+//   println!("{}", result_str);
+// }
+
+// fn main () {
+//   // n의 팩토리얼을 구하라
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+//   let mut num: usize = input.trim().parse().expect("check parsed value");
+//   if num == 0 {
+//     println!("{}", 1);  
+//     return;
+//   }
+
+//   if num == 1 {
+//     println!("{}", 1);  
+//     return;
+//   }
+
+
+//   let mut result_num: usize = num;
+
+//   while num != 1 {
+//       result_num = result_num * (num -1);
+//       num = num - 1;
+//   } 
+
+//   println!("{}", result_num);
+// }
+
+// fn main () {
+//   // 1 / 2 ~ 7 / 8 ~ 19 / 20 ~ 37/ 38 ~
+//   //      6        12       18      
+
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+//   let input_num: usize = input.trim().parse().expect("check parsed value");
+
+//   // 몇번 가야 하는 지
+//   let mut count= 1;
+//   // 바퀴 수
+//   let mut cycle_count = 1;
+
+//   //입력값보다 cycle_count 보다 커지면 안 된다
+//   while input_num > cycle_count {
+//     // i에다가 6 * i를해서 바퀴수를 센다
+//     cycle_count = cycle_count + (6 * count);
+//     count = count + 1;
+//   }
+
+//   println!("{}", count);
+// }
+
 fn main () {
-  let mut input = String::new();
-  for _ in 0..3 {
-    std::io::stdin().read_line(&mut input).expect("check input value");
-  }
+  print!("|\\_/|\n");
+  print!("|q p|   /}}\n");
+  print!("( 0 )\"\"\"\\\n");
+  print!("|\"^\"`    |\n");
+  print!("||_/=\\\\__|\n");
+  
 
-  let input_vec: Vec<usize> = input.trim_end().split("\n").map(|val| val.trim().parse().expect("check parsed value")).collect();
-  dbg!(&input_vec);
-  let multipled = input_vec[0] * input_vec[1] * input_vec[2];
-  dbg!(&multipled);
-  let mut check_idx = vec![0;10];
 
-  multipled.to_string().chars().for_each(|c| {
-    let num = c.to_digit(10).unwrap() as usize;
-    check_idx[num] = check_idx[num] + 1;
-  });
-
-  let result_str = check_idx.iter().map(|val| val.to_string()).collect::<Vec<String>>().join("\n");
-
-  println!("{}", result_str);
+  /*
+  |\_/|
+  |q p|   /}
+  ( 0 )"""\
+  |"^"`    |
+  ||_/=\\__|
+   */
 }
