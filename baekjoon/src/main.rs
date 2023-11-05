@@ -501,20 +501,144 @@
 //   println!("{}", count);
 // }
 
-fn main () {
-  print!("|\\_/|\n");
-  print!("|q p|   /}}\n");
-  print!("( 0 )\"\"\"\\\n");
-  print!("|\"^\"`    |\n");
-  print!("||_/=\\\\__|\n");
+// fn main () {
+//   print!("|\\_/|\n");
+//   print!("|q p|   /}}\n");
+//   print!("( 0 )\"\"\"\\\n");
+//   print!("|\"^\"`    |\n");
+//   print!("||_/=\\\\__|\n");
   
 
 
-  /*
-  |\_/|
-  |q p|   /}
-  ( 0 )"""\
-  |"^"`    |
-  ||_/=\\__|
-   */
+//   /*
+//   |\_/|
+//   |q p|   /}
+//   ( 0 )"""\
+//   |"^"`    |
+//   ||_/=\\__|
+//    */
+// }
+
+
+// fn main() {
+//   let address: *const () = std::ptr::null(); // ptr::null()은 메모리 주소 0을 나타냅니다.
+//   println!("메모리 시작 주소: {:?}", address);
+
+//   let null_varaible: *const () = std::ptr::null();
+//   dbg!(null_varaible);
+// }
+
+
+
+
+
+
+// use std::process::Command;
+
+// fn main() {
+//   let ptr_1: *const i32 = std::ptr::null();
+//   dbg!(ptr_1);
+//   let output = Command::new("rustc")
+//       .arg("--version")
+//       .output().unwrap_or_else(|e| {
+//           panic!("failed to execute process: {}", e)
+//   });
+
+//   if output.status.success() {
+//       let s = String::from_utf8_lossy(&output.stdout);
+//       let ptr_2: *const i32 = std::ptr::null();
+//       dbg!(ptr_2);
+//       dbg!(ptr_1 == ptr_2); // true
+
+//       print!("rustc succeeded and stdout was:\n{}", s);
+//   } else {
+//       let s = String::from_utf8_lossy(&output.stderr);
+
+//       print!("rustc failed and stderr was:\n{}", s);
+//   }
+// }
+
+
+// fn main() {
+//     // Define an array of integers
+//     let mut arr: [i32; 5] = [1, 2, 3, 4, 5];
+
+//     // Use the std::mem::size_of function to get the size of the array
+//     let size = std::mem::size_of_val(&arr);
+//     arr[1] = 2147483647;
+
+//     dbg!(arr);
+//     println!("Array size: {} bytes", size);
+//     println!("{:p}", &arr);
+//     println!("{:p}", &arr[1])
+// }
+
+// fn main() {
+//     let 이름 = "kim";
+//     let 두번째_이름 = "kim";
+//     let 이름_복사 = 이름;
+
+//     let 힙에있는_이름 = String::from("kim");
+//     let 두번째_힙에있는_이름 = String::from("kim");
+
+    
+
+//     println!("kim pointer {:p}", "kim");     // 0x104341d29
+//     println!("kim pointer {:p}", 이름);      // 0x104341d29
+//     println!("kim pointer {:p}", 두번째_이름);    // 0x104341d29
+//     println!("kim pointer {:p}\n", 이름_복사);  // 0x104341d29
+
+//     test(이름);
+
+//     println!("name_4 pointer {:p}", 힙에있는_이름.as_str());    //0x151e06a30
+//     println!("name_5 pointer {:p}\n", 두번째_힙에있는_이름.as_str());  //0x151e06a40 
+
+//     println!("name pointer {:p}", &이름);               // 0x16bb72498
+//     println!("name_2 pointer {:p}", &두번째_이름);           // 0x16bb724a8
+//     println!("name_3 pointer {:p}", &이름_복사);           // 0x16bb724b8
+//     println!("name_4 pointer {:p}", &힙에있는_이름);           // 0x16bb724c8
+//     println!("name_5 pointer {:p}", &두번째_힙에있는_이름);           // 0x16bb724e0
+// }
+
+// fn test(name: &str) {
+//   println!("test 함수 속 \"kim\" {:p}", "kim");                // 0x104341d29
+//   println!("test 함수 속 name 매개 변수 {:p}", name);          // 0x104341d29
+//   println!("test 함수 속 name 매개 변수 주소 {:p}\n", &name);    // 0x16baf61d8
+// }
+
+
+// fn main () {
+//   let mut num = 1;
+//   num = num + 1;
+//   num = num + 2;
+
+//   let added = add_num(num, num);
+
+//   println!("{}", num);
+//   println!("{}", added);
+// }
+
+// fn add_num (a:i32, b: i32) -> i32 {
+//    a + b
+// }
+
+// const NAMES: [&'static str; 10] = [
+//     "Kaladin", "Teft", "Drehy", "Skar", "Rock", "Sigzil", "Moash", "Leyten", "Lopen", "Hobber",
+// ];
+
+// fn main() {
+//     roll_call();
+// }
+
+// pub fn roll_call() {
+//     println!("SOUND OFF");
+//     for name in NAMES.iter() {
+//         println!("{}: HERE!", name);
+//     }
+//     let num_present = NAMES.len();
+//     println!("All {} accounted for!", num_present);
+// }
+
+fn main () {
+  println!("{}", "Hello World!");
 }
