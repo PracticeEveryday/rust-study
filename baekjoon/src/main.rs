@@ -639,6 +639,50 @@
 //     println!("All {} accounted for!", num_present);
 // }
 
+// fn main () {
+//   println!("{}", "Hello World!");
+// }
+
+// fn main () {
+//   // Input
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+//   let input_num: usize = input.trim().parse().unwrap();
+
+//   let mut result_str = String::new();
+//   // Process
+//   for i in 1..input_num + 1 {
+//     result_str.push_str(&i.to_string());
+//     result_str.push('\n')
+//   }
+//   // Output
+//   println!("{}", result_str.trim_end());
+// }
+
+
+// fn main () {
+//   // Input
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+//   let input_num: usize = input.trim().parse().unwrap();
+
+//   let mut result_str = String::new();
+//   // Process
+//   for i in (1..input_num + 1).rev() {
+//     result_str.push_str(&i.to_string());
+//     result_str.push('\n')
+//   }
+//   // Output
+//   println!("{}", result_str.trim_end());
+// }
+
+
 fn main () {
-  println!("{}", "Hello World!");
+  // Input
+
+  // Process
+
+  // Output
 }
