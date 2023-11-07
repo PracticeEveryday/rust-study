@@ -680,9 +680,67 @@
 
 
 fn main () {
+  // [?] 구현: 스택
+  
+  // 초기화
+  let mut input = String::new();
+  let mut stack: Vec<usize> = Vec::new();
+  
   // Input
+  std::io::stdin().read_line(&mut input).expect("check input value");
+  let try_count: usize = input.trim().parse().expect("check parsed value");
+  
+  let mut result_str = String::new();
 
   // Process
+  for _ in 0..try_count {
+    input.clear();
+    std::io::stdin().read_line(&mut input).expect("check input value");
 
-  // Output
+    if input.contains(" ") { // 스페이스바를 포함한다면 push 메서드임
+      let input_vec: Vec<&str> = input.split_whitespace().collect();
+      stack.push(input_vec[1].trim().parse().unwrap());
+    } else {
+      match input.trim() {
+        "size" => {
+          if stack.len() == 0 {
+            result_str.push_str("0");
+            result_str.push('\n')
+          } else {
+            result_str.push_str(&stack.len().to_string());
+            result_str.push('\n')
+          }
+        },
+        "pop" => {
+          if stack.len() == 0 {
+            result_str.push_str("-1");
+            result_str.push('\n')
+          } else {
+            result_str.push_str(&stack.pop().unwrap().to_string());
+            result_str.push('\n')
+          }
+        },
+        "empty" => {
+        if stack.len() == 0 {
+            result_str.push_str("1");
+            result_str.push('\n')
+          } else {
+            result_str.push_str("0");
+            result_str.push('\n')
+          }
+        },
+        "top" => {
+          if stack.len() == 0 {
+            result_str.push_str("-1");
+            result_str.push('\n')
+          } else {
+            result_str.push_str(&(stack[stack.len() -1]).to_string());
+            result_str.push('\n')
+          }
+        },
+        _ => println!("hello"),
+      }
+    }
+  } 
+  println!("{}", result_str.trim())
 }
