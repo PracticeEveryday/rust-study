@@ -679,68 +679,174 @@
 // }
 
 
+// fn main () {
+//   // [?] 구현: 스택
+  
+//   // 초기화
+//   let mut input = String::new();
+//   let mut stack: Vec<usize> = Vec::new();
+  
+//   // Input
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+//   let try_count: usize = input.trim().parse().expect("check parsed value");
+  
+//   let mut result_str = String::new();
+
+//   // Process
+//   for _ in 0..try_count {
+//     input.clear();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+
+//     if input.contains(" ") { // 스페이스바를 포함한다면 push 메서드임
+//       let input_vec: Vec<&str> = input.split_whitespace().collect();
+//       stack.push(input_vec[1].trim().parse().unwrap());
+//     } else {
+//       match input.trim() {
+//         "size" => {
+//           if stack.len() == 0 {
+//             result_str.push_str("0");
+//             result_str.push('\n')
+//           } else {
+//             result_str.push_str(&stack.len().to_string());
+//             result_str.push('\n')
+//           }
+//         },
+//         "pop" => {
+//           if stack.len() == 0 {
+//             result_str.push_str("-1");
+//             result_str.push('\n')
+//           } else {
+//             result_str.push_str(&stack.pop().unwrap().to_string());
+//             result_str.push('\n')
+//           }
+//         },
+//         "empty" => {
+//         if stack.len() == 0 {
+//             result_str.push_str("1");
+//             result_str.push('\n')
+//           } else {
+//             result_str.push_str("0");
+//             result_str.push('\n')
+//           }
+//         },
+//         "top" => {
+//           if stack.len() == 0 {
+//             result_str.push_str("-1");
+//             result_str.push('\n')
+//           } else {
+//             result_str.push_str(&(stack[stack.len() -1]).to_string());
+//             result_str.push('\n')
+//           }
+//         },
+//         _ => println!("hello"),
+//       }
+//     }
+//   } 
+//   println!("{}", result_str.trim())
+// }
+
+// fn main () {
+//   // [?] OX 퀴즈
+//   // O는 맞은 것 X는 틀린 것
+//   // 점수는 그 문제까지 연속된 O의 개수!!
+//   // OOXXOXXOOO => 1 2 0 0 1 0 0 1 2 3
+
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+//   let try_count: usize = input.trim().parse().unwrap();
+//   let mut score_str = String::new();
+  
+//   for _ in 0..try_count {
+//     let mut score :usize= 0;
+//     input.clear();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+
+//     let splited_by_x = input.trim().split("X").collect::<Vec<&str>>();
+
+//     for i in splited_by_x {
+//       if i != "" {
+//         for j in 1..i.len()+1 {
+//           score += j;
+//         }
+//       }
+//     }
+//     score_str.push_str(&format!("{}{}", &score.to_string(), "\n"));
+    
+//   }
+
+//   println!("{}", score_str);
+//   /*
+//     5
+//     OOXXOXXOOO
+//     OOXXOOXXOO
+//     OXOXOXOXOXOXOX
+//     OOOOOOOOOO
+//     OOOOXOOOOXOOOOX
+
+//     10
+//     9
+//     7
+//     55
+//     30 
+//    */
+// }
+
+// fn main () {
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+//   let input_num: usize = input.trim().parse().unwrap();
+
+//   for i in (1..=(input_num)).rev() {
+//     println!("{}", "*".repeat(i));
+//   }
+// }
+
 fn main () {
-  // [?] 구현: 스택
+  // [?] 피보나치 수 구하기
+  /*
+    피보나치 수는 0과 1로 시작
+    0번째 -> 0
+    1번째 -> 1
+    2번째 부터는 바로 앞 두 피보나치 수의 합
+    // 0 1 1 2 3 5 8 13 21 34 ... 
+    [!] n이 주어졌을 때 n번째 피보나치 수를 구하는 프로그램
+   */
   
   // 초기화
+  let mut present_fibonacci_num: usize = 1;
+  let mut before_fibonacci_num: usize = 1;
+  // 인풋
   let mut input = String::new();
-  let mut stack: Vec<usize> = Vec::new();
-  
-  // Input
   std::io::stdin().read_line(&mut input).expect("check input value");
-  let try_count: usize = input.trim().parse().expect("check parsed value");
-  
-  let mut result_str = String::new();
 
-  // Process
-  for _ in 0..try_count {
-    input.clear();
-    std::io::stdin().read_line(&mut input).expect("check input value");
 
-    if input.contains(" ") { // 스페이스바를 포함한다면 push 메서드임
-      let input_vec: Vec<&str> = input.split_whitespace().collect();
-      stack.push(input_vec[1].trim().parse().unwrap());
-    } else {
-      match input.trim() {
-        "size" => {
-          if stack.len() == 0 {
-            result_str.push_str("0");
-            result_str.push('\n')
-          } else {
-            result_str.push_str(&stack.len().to_string());
-            result_str.push('\n')
-          }
-        },
-        "pop" => {
-          if stack.len() == 0 {
-            result_str.push_str("-1");
-            result_str.push('\n')
-          } else {
-            result_str.push_str(&stack.pop().unwrap().to_string());
-            result_str.push('\n')
-          }
-        },
-        "empty" => {
-        if stack.len() == 0 {
-            result_str.push_str("1");
-            result_str.push('\n')
-          } else {
-            result_str.push_str("0");
-            result_str.push('\n')
-          }
-        },
-        "top" => {
-          if stack.len() == 0 {
-            result_str.push_str("-1");
-            result_str.push('\n')
-          } else {
-            result_str.push_str(&(stack[stack.len() -1]).to_string());
-            result_str.push('\n')
-          }
-        },
-        _ => println!("hello"),
-      }
+  // 프로세스
+  let input_num: usize = input.trim().parse().expect("check parsed value");
+  if input_num == 0 {
+    present_fibonacci_num = 0
+  }
+
+  if input_num == 1 {
+    present_fibonacci_num = 1
+  }
+
+  if input_num == 2 {
+    present_fibonacci_num = 1
+  }
+
+  if input_num >= 3 {
+    for _ in 0..input_num - 2 {
+      // 이전의 피보나치 수는 현재 피보나치 수
+      let temp = present_fibonacci_num;
+      present_fibonacci_num = before_fibonacci_num + present_fibonacci_num;
+      before_fibonacci_num = temp;
+      
     }
-  } 
-  println!("{}", result_str.trim())
+  }
+
+
+  // 아웃풋
+  println!("{}", present_fibonacci_num);
 }
