@@ -803,50 +803,99 @@
 //   }
 // }
 
-fn main () {
-  // [?] 피보나치 수 구하기
-  /*
-    피보나치 수는 0과 1로 시작
-    0번째 -> 0
-    1번째 -> 1
-    2번째 부터는 바로 앞 두 피보나치 수의 합
-    // 0 1 1 2 3 5 8 13 21 34 ... 
-    [!] n이 주어졌을 때 n번째 피보나치 수를 구하는 프로그램
-   */
+// fn main () {
+//   // [?] 피보나치 수 구하기
+//   /*
+//     피보나치 수는 0과 1로 시작
+//     0번째 -> 0
+//     1번째 -> 1
+//     2번째 부터는 바로 앞 두 피보나치 수의 합
+//     // 0 1 1 2 3 5 8 13 21 34 ... 
+//     [!] n이 주어졌을 때 n번째 피보나치 수를 구하는 프로그램
+//    */
   
-  // 초기화
-  let mut present_fibonacci_num: usize = 1;
-  let mut before_fibonacci_num: usize = 1;
-  // 인풋
+//   // 초기화
+//   let mut present_fibonacci_num: usize = 1;
+//   let mut before_fibonacci_num: usize = 1;
+//   // 인풋
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+
+
+//   // 프로세스
+//   let input_num: usize = input.trim().parse().expect("check parsed value");
+//   if input_num == 0 {
+//     present_fibonacci_num = 0
+//   }
+
+//   if input_num == 1 {
+//     present_fibonacci_num = 1
+//   }
+
+//   if input_num == 2 {
+//     present_fibonacci_num = 1
+//   }
+
+//   if input_num >= 3 {
+//     for _ in 0..input_num - 2 {
+//       // 이전의 피보나치 수는 현재 피보나치 수
+//       let temp = present_fibonacci_num;
+//       present_fibonacci_num = before_fibonacci_num + present_fibonacci_num;
+//       before_fibonacci_num = temp;
+      
+//     }
+//   }
+
+
+//   // 아웃풋
+//   println!("{}", present_fibonacci_num);
+// }
+
+
+fn main () {
+  //[?] 달팽이는 올라가고 싶다.
+
+  /*
+    높이가 V인 나무를 올라간다.
+    달팽이는 낮에 A미터 올라갈 수 있다.
+    달팽이는 밤에 자면서 B미너 미끄러진다. -> [!] 단, 정상에 올라간 이후에는 미끌어지지 않는다.
+    나무막대에 올라가려면 몇일이 걸리는지 구하자
+   */
+
+  // initialize
+  let mut day_count = 0.0;
+  // input
+  /*
+    A B V
+   */
   let mut input = String::new();
   std::io::stdin().read_line(&mut input).expect("check input value");
+  // process
+
+  let input_arr: Vec<f64> = input.split_whitespace().map(|val| val.trim().parse().unwrap()).collect();
+  let (day, night, goal_height) = (input_arr[0], input_arr[1], input_arr[2]);
+
+  day_count = ((goal_height - day) / (day - night)).ceil() + 1.0;
 
 
-  // 프로세스
-  let input_num: usize = input.trim().parse().expect("check parsed value");
-  if input_num == 0 {
-    present_fibonacci_num = 0
-  }
+  // output
+  println!("{}", day_count as usize);
 
-  if input_num == 1 {
-    present_fibonacci_num = 1
-  }
-
-  if input_num == 2 {
-    present_fibonacci_num = 1
-  }
-
-  if input_num >= 3 {
-    for _ in 0..input_num - 2 {
-      // 이전의 피보나치 수는 현재 피보나치 수
-      let temp = present_fibonacci_num;
-      present_fibonacci_num = before_fibonacci_num + present_fibonacci_num;
-      before_fibonacci_num = temp;
-      
-    }
-  }
-
-
-  // 아웃풋
-  println!("{}", present_fibonacci_num);
+  /*
+  2 1 5 
+  4
+  5 1 6
+  2
+  100 99 1000000000
+  999999901
+   */
 }
+
+  // for문은 너무 오래 걸림 수학으로 가야함.
+  // while present_space <= height {
+    // present_space = present_space + day;
+    // if present_space < height {
+      // present_space = present_space - night;
+    // }
+    // day_count += 1;
+  // }
