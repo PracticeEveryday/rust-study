@@ -852,50 +852,131 @@
 // }
 
 
+// fn main () {
+//   //[?] 달팽이는 올라가고 싶다.
+
+//   /*
+//     높이가 V인 나무를 올라간다.
+//     달팽이는 낮에 A미터 올라갈 수 있다.
+//     달팽이는 밤에 자면서 B미너 미끄러진다. -> [!] 단, 정상에 올라간 이후에는 미끌어지지 않는다.
+//     나무막대에 올라가려면 몇일이 걸리는지 구하자
+//    */
+
+//   // initialize
+//   let mut day_count = 0.0;
+//   // input
+//   /*
+//     A B V
+//    */
+//   let mut input = String::new();
+//   std::io::stdin().read_line(&mut input).expect("check input value");
+//   // process
+
+//   let input_arr: Vec<f64> = input.split_whitespace().map(|val| val.trim().parse().unwrap()).collect();
+//   let (day, night, goal_height) = (input_arr[0], input_arr[1], input_arr[2]);
+
+//   day_count = ((goal_height - day) / (day - night)).ceil() + 1.0;
+
+
+//   // output
+//   println!("{}", day_count as usize);
+
+//   /*
+//   2 1 5 
+//   4
+//   5 1 6
+//   2
+//   100 99 1000000000
+//   999999901
+//    */
+// }
+
+//   // for문은 너무 오래 걸림 수학으로 가야함.
+//   // while present_space <= height {
+//     // present_space = present_space + day;
+//     // if present_space < height {
+//       // present_space = present_space - night;
+//     // }
+//     // day_count += 1;
+//   // }
+
+// use std::num::ParseIntError;
+// use std::io;
+
+// fn main() {
+//     let mut input = String::new();
+//     io::stdin().read_line(&mut input).expect("입력 실패");
+
+//     let input = input.trim(); // 줄 바꿈 문자 제거
+
+//     match hex_string_to_decimal(input) {
+//         Ok(decimal) => {
+//             println!("{}", decimal);
+//         }
+//         Err(err) => {
+//             eprintln!("{}", err);
+//         }
+//     }
+// }
+
+// fn hex_string_to_decimal(hex_string: &str) -> Result<u32, ParseIntError> {
+//     // 16진수 문자열을 10진수로 변환
+//     let decimal = u32::from_str_radix(hex_string, 16);
+//     decimal
+// }
+
 fn main () {
-  //[?] 달팽이는 올라가고 싶다.
+    // input
+    let mut input = String::new();
+    std::io::stdin().read_line(&mut input).unwrap();
+    let input_num: usize = input.trim().parse().unwrap();
 
-  /*
-    높이가 V인 나무를 올라간다.
-    달팽이는 낮에 A미터 올라갈 수 있다.
-    달팽이는 밤에 자면서 B미너 미끄러진다. -> [!] 단, 정상에 올라간 이후에는 미끌어지지 않는다.
-    나무막대에 올라가려면 몇일이 걸리는지 구하자
-   */
+    input.clear();
+    std::io::stdin().read_line(&mut input).unwrap();
+    let input_num2: usize = input.trim().parse().unwrap();
 
-  // initialize
-  let mut day_count = 0.0;
-  // input
-  /*
-    A B V
-   */
-  let mut input = String::new();
-  std::io::stdin().read_line(&mut input).expect("check input value");
-  // process
-
-  let input_arr: Vec<f64> = input.split_whitespace().map(|val| val.trim().parse().unwrap()).collect();
-  let (day, night, goal_height) = (input_arr[0], input_arr[1], input_arr[2]);
-
-  day_count = ((goal_height - day) / (day - night)).ceil() + 1.0;
-
-
-  // output
-  println!("{}", day_count as usize);
-
-  /*
-  2 1 5 
-  4
-  5 1 6
-  2
-  100 99 1000000000
-  999999901
-   */
+    // output
+    println!("{}", input_num + input_num2)
 }
 
-  // for문은 너무 오래 걸림 수학으로 가야함.
-  // while present_space <= height {
-    // present_space = present_space + day;
-    // if present_space < height {
-      // present_space = present_space - night;
-    // }
-    // day_count += 1;
-  // }
+
+// fn main () {
+//     //[?] 달팽이
+//     // https://www.acmicpc.net/problem/1913
+
+//     /*
+//      숫자 N이 주어지고, 달팽이 모양으로 NXN으로 채울 수 있다.
+//      또한 숫자가 주어지는 데 이 숫자의 좌표를 찍어라
+
+
+//      7
+//      35
+
+//      49 26 27 28 29 30 31
+//      48 25 10 11 12 13 32
+//      47 24 9 2 3 14 33
+//      46 23 8 1 4 15 34
+//      45 22 7 6 5 16 35
+//      44 21 20 19 18 17 36
+//      43 42 41 40 39 38 37
+//      5 7
+//      */
+//     // input
+//     let mut input = String::new();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+//     let snail_num: usize = input.trim().parse().unwrap();
+
+//     input.clear();
+//     std::io::stdin().read_line(&mut input).expect("check input value");
+//     let numToFind: Vec<usize> = input.trim().split_ascii_whitespace().map(|val| val.trim().parse().unwrap()).collect();
+
+//     // process
+//     // NxN 달팽이 모양 만들기 2차원 배열
+//     let snail_vec: Vec<Vec<usize>> = Vec::new();
+
+
+
+
+//     // output
+//     println!("달팽이 배열{:?}", snail_vec);
+// }
